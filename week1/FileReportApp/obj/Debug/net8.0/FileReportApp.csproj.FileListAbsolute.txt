@@ -1,0 +1,14 @@
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\bin\Debug\net8.0\FileReportApp.exe
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\bin\Debug\net8.0\FileReportApp.deps.json
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\bin\Debug\net8.0\FileReportApp.runtimeconfig.json
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\bin\Debug\net8.0\FileReportApp.dll
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\bin\Debug\net8.0\FileReportApp.pdb
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\FileReportApp.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\FileReportApp.AssemblyInfoInputs.cache
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\FileReportApp.AssemblyInfo.cs
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\FileReportApp.csproj.CoreCompileInputs.cache
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\FileReportApp.dll
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\refint\FileReportApp.dll
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\FileReportApp.pdb
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\FileReportApp.genruntimeconfig.cache
+C:\Users\DELL\Documents\CSE-325\week1\FileReportApp\obj\Debug\net8.0\ref\FileReportApp.dll

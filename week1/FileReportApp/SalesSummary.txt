@@ -1,0 +1,8 @@
+Sales Summary
+--------------------------
+Total Sales: C$6,677.29
+
+Details:
+store1.txt: C$1,668.85
+store2.txt: C$2,749.99
+store3.txt: C$2,258.45
