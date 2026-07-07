@@ -1,8 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
+using Microsoft.AspNetCore.Mvc.Rendering;
 using MvcMovie.Data;
 using MvcMovie.Models;
-using Microsoft.AspNetCore.Mvc.Rendering;
 using System.Linq;
 
 namespace MvcMovie.Controllers;
@@ -35,7 +35,8 @@ public class MoviesController : Controller
         // Filter by movie title
         if (!string.IsNullOrEmpty(searchString))
         {
-            movies = movies.Where(s => s.Title!.ToUpper().Contains(searchString.ToUpper()));
+            movies = movies.Where(s =>
+                s.Title!.ToUpper().Contains(searchString.ToUpper()));
         }
 
         // Filter by genre
@@ -65,6 +66,7 @@ public class MoviesController : Controller
 
         var movie = await _context.Movie
             .FirstOrDefaultAsync(m => m.Id == id);
+
         if (movie == null)
         {
             return NotFound();
@@ -82,7 +84,8 @@ public class MoviesController : Controller
     // POST: Movies/Create
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Create([Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+    public async Task<IActionResult> Create(
+        [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
     {
         if (ModelState.IsValid)
         {
@@ -90,6 +93,7 @@ public class MoviesController : Controller
             await _context.SaveChangesAsync();
             return RedirectToAction(nameof(Index));
         }
+
         return View(movie);
     }
 
@@ -102,17 +106,21 @@ public class MoviesController : Controller
         }
 
         var movie = await _context.Movie.FindAsync(id);
+
         if (movie == null)
         {
             return NotFound();
         }
+
         return View(movie);
     }
 
     // POST: Movies/Edit/5
     [HttpPost]
     [ValidateAntiForgeryToken]
-    public async Task<IActionResult> Edit(int id, [Bind("Id,Title,ReleaseDate,Genre,Price")] Movie movie)
+    public async Task<IActionResult> Edit(
+        int id,
+        [Bind("Id,Title,ReleaseDate,Genre,Price,Rating")] Movie movie)
     {
         if (id != movie.Id)
         {
@@ -137,8 +145,10 @@ public class MoviesController : Controller
                     throw;
                 }
             }
+
             return RedirectToAction(nameof(Index));
         }
+
         return View(movie);
     }
 
@@ -152,6 +162,7 @@ public class MoviesController : Controller
 
         var movie = await _context.Movie
             .FirstOrDefaultAsync(m => m.Id == id);
+
         if (movie == null)
         {
             return NotFound();
@@ -166,12 +177,14 @@ public class MoviesController : Controller
     public async Task<IActionResult> DeleteConfirmed(int id)
     {
         var movie = await _context.Movie.FindAsync(id);
+
         if (movie != null)
         {
             _context.Movie.Remove(movie);
         }
 
         await _context.SaveChangesAsync();
+
         return RedirectToAction(nameof(Index));
     }
 
