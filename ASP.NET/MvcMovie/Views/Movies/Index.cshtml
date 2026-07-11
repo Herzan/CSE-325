@@ -14,18 +14,22 @@
     <div class="row mb-4 align-items-end">
         <div class="col-md-3">
             <label class="form-label">Genre</label>
-            <select asp-for="MovieGenre" asp-items="Model.Genres" class="form-select">
+            <select asp-for="MovieGenre" asp-items="Model.Genres" class="form-select p-2">
                 <option value="">All Genres</option>
             </select>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-3">
             <label class="form-label">Movie Title</label>
-            <input type="text" asp-for="SearchString" class="form-control" placeholder="Search by title..." />
+            <input type="text" asp-for="SearchString" class="form-control p-2" placeholder="Search by title..." />
+        </div>
+        <div class="col-md-2">
+            <label class="form-label">Year (or newer)</label>
+            <input type="number" asp-for="SearchYear" class="form-control p-2" placeholder="e.g. 1990" />
         </div>
         <div class="col-md-2">
             <button type="submit" class="btn btn-primary w-100">Filter</button>
         </div>
-        <div class="col-md-3">
+        <div class="col-md-2">
             <a asp-action="Index" class="btn btn-secondary w-100">Clear Filter</a>
         </div>
     </div>

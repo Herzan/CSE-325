@@ -17,7 +17,7 @@ public class MoviesController : Controller
     }
 
     // GET: Movies - With Search by Title and Genre
-    public async Task<IActionResult> Index(string movieGenre, string searchString)
+    public async Task<IActionResult> Index(string movieGenre, string searchString, int? searchYear)
     {
         if (_context.Movie == null)
         {
@@ -45,12 +45,19 @@ public class MoviesController : Controller
             movies = movies.Where(x => x.Genre == movieGenre);
         }
 
+        // Filter by year - show movies released that year or newer
+        if (searchYear.HasValue)
+        {
+            movies = movies.Where(m => m.ReleaseDate.Year >= searchYear.Value);
+        }
+
         var movieGenreVM = new MovieGenreViewModel
         {
             Genres = new SelectList(await genreQuery.Distinct().ToListAsync()),
             Movies = await movies.ToListAsync(),
             MovieGenre = movieGenre,
-            SearchString = searchString
+            SearchString = searchString,
+            SearchYear = searchYear
         };
 
         return View(movieGenreVM);
