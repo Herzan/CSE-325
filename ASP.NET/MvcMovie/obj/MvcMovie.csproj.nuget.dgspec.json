@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "C:\\Users\\DELL\\Documents\\CSE-325\\asP.NET\\mvcmovie\\MvcMovie.csproj": {}
+    "C:\\Users\\DELL\\Documents\\CSE-325\\ASP.NET\\MvcMovie\\MvcMovie.csproj": {}
   },
   "projects": {
-    "C:\\Users\\DELL\\Documents\\CSE-325\\asP.NET\\mvcmovie\\MvcMovie.csproj": {
+    "C:\\Users\\DELL\\Documents\\CSE-325\\ASP.NET\\MvcMovie\\MvcMovie.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "C:\\Users\\DELL\\Documents\\CSE-325\\asP.NET\\mvcmovie\\MvcMovie.csproj",
+        "projectUniqueName": "C:\\Users\\DELL\\Documents\\CSE-325\\ASP.NET\\MvcMovie\\MvcMovie.csproj",
         "projectName": "MvcMovie",
-        "projectPath": "C:\\Users\\DELL\\Documents\\CSE-325\\asP.NET\\mvcmovie\\MvcMovie.csproj",
+        "projectPath": "C:\\Users\\DELL\\Documents\\CSE-325\\ASP.NET\\MvcMovie\\MvcMovie.csproj",
         "packagesPath": "C:\\Users\\DELL\\.nuget\\packages\\",
-        "outputPath": "C:\\Users\\DELL\\Documents\\CSE-325\\asP.NET\\mvcmovie\\obj\\",
+        "outputPath": "C:\\Users\\DELL\\Documents\\CSE-325\\ASP.NET\\MvcMovie\\obj\\",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "C:\\Users\\DELL\\AppData\\Roaming\\NuGet\\NuGet.Config"
