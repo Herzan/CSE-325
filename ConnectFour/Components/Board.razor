@@ -1,0 +1,136 @@
+@using System.Drawing
+@inject GameState State
+
+<HeadContent>
+    <style>
+        :root {
+            --board-bg: @ColorTranslator.ToHtml(BoardColor);
+            --player1: @ColorTranslator.ToHtml(Player1Color);
+            --player2: @ColorTranslator.ToHtml(Player2Color);
+        }
+    </style>
+</HeadContent>
+
+<nav>
+    @for (byte i = 0; i < GameState.Columns; i++)
+    {
+        var col = i;
+        <span title="Click to play a piece"
+              class="@(State.IsColumnFull(col) ? "disabled" : "")"
+              @onclick="() => PlayPiece(col)">🔽</span>
+    }
+</nav>
+
+<article>
+    @winnerMessage <button style="@ResetStyle" @onclick="ResetGame">Reset the game</button>
+    <br />
+    <span class="alert-danger">@errorMessage</span>
+    <span class="alert-info">@CurrentTurn</span>
+</article>
+
+<div>
+    <div class="board">
+        @for (var i = 0; i < 42; i++)
+        {
+            <span class="container">
+                <span></span>
+            </span>
+        }
+    </div>
+    @for (var i = 0; i < 42; i++)
+    {
+        <span class="@pieces[i]"></span>
+    }
+</div>
+
+<section class="game-stats">
+    <h4>Game activity</h4>
+    <div class="stats-row">
+        <div class="stat-box player1-box">
+            <strong>Player 1</strong>
+            <span>Current win streak: @State.Player1ConsecutiveWins</span>
+        </div>
+        <div class="stat-box player2-box">
+            <strong>Player 2</strong>
+            <span>Current win streak: @State.Player2ConsecutiveWins</span>
+        </div>
+    </div>
+    <p class="games-played">Total games played: @State.TotalGamesPlayed</p>
+
+    <h5>Move history</h5>
+    @if (State.MoveHistory.Count == 0)
+    {
+        <p class="no-moves"><em>No moves yet. Drop a piece to begin!</em></p>
+    }
+    else
+    {
+        <ol class="move-history">
+            @foreach (var move in State.MoveHistory)
+            {
+                <li>@move</li>
+            }
+        </ol>
+    }
+</section>
+
+@code {
+    [Parameter]
+    public Color BoardColor { get; set; } = ColorTranslator.FromHtml("yellow");
+
+    [Parameter]
+    public Color Player1Color { get; set; } = ColorTranslator.FromHtml("red");
+
+    [Parameter]
+    public Color Player2Color { get; set; } = ColorTranslator.FromHtml("blue");
+
+    private string[] pieces = new string[42];
+    private string winnerMessage = string.Empty;
+    private string errorMessage = string.Empty;
+
+    private string CurrentTurn => (winnerMessage == string.Empty) ? $"Player {State.PlayerTurn}'s Turn" : "";
+    private string ResetStyle => (winnerMessage == string.Empty) ? "display: none;" : "";
+
+    protected override void OnInitialized()
+    {
+        State.ResetBoard();
+    }
+
+    private void PlayPiece(byte col)
+    {
+        // Ignore clicks once the game is already over.
+        if (winnerMessage != string.Empty)
+        {
+            return;
+        }
+
+        errorMessage = string.Empty;
+        try
+        {
+            var player = State.PlayerTurn;
+            var turn = State.CurrentTurn;
+            var landingRow = State.PlayPiece(col);
+            pieces[turn] = $"player{player} col{col} drop{landingRow}";
+        }
+        catch (ArgumentException ex)
+        {
+            errorMessage = ex.Message;
+            return;
+        }
+
+        winnerMessage = State.CheckForWin() switch
+        {
+            GameState.WinState.Player1_Wins => "Player 1 Wins!",
+            GameState.WinState.Player2_Wins => "Player 2 Wins!",
+            GameState.WinState.Tie => "It's a tie!",
+            _ => ""
+        };
+    }
+
+    private void ResetGame()
+    {
+        State.ResetBoard();
+        winnerMessage = string.Empty;
+        errorMessage = string.Empty;
+        pieces = new string[42];
+    }
+}

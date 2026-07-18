@@ -1,0 +1,12 @@
+@page "/"
+@using System.Drawing
+
+<PageTitle>Connect Four</PageTitle>
+
+<h1>Connect Four</h1>
+<p>Drop a piece into a column. First to connect four in a row wins!</p>
+
+<Board @rendermode="InteractiveServer"
+       BoardColor="Color.MidnightBlue"
+       Player1Color="Color.Crimson"
+       Player2Color="Color.Gold" />
