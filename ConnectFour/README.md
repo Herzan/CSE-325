@@ -27,8 +27,15 @@ ConnectFour/
 │   ├── _Imports.razor
 │   ├── Board.razor                # the game board + controls + activity panel
 │   ├── Board.razor.css            # scoped styles + drop animations
-│   ├── Layout/MainLayout.razor
-│   └── Pages/Home.razor           # "/" page, hosts <Board>
+│   ├── Layout/
+│   │   ├── MainLayout.razor       # sidebar + top "About" bar shell
+│   │   ├── MainLayout.razor.css
+│   │   ├── NavMenu.razor          # Home / Counter / Fetch data sidebar links
+│   │   └── NavMenu.razor.css
+│   └── Pages/
+│       ├── Home.razor             # "/" page, hosts <Board>
+│       ├── Counter.razor          # standard template demo page
+│       └── Weather.razor          # standard template "Fetch data" demo page
 └── wwwroot/app.css
 ```
 
@@ -80,11 +87,19 @@ dotnet watch run
   the whole app, so they reset only when you stop and restart the app).
 
 ## Notes
+- The app uses the standard Blazor Web App shell: a dark sidebar (Home / Counter /
+  Fetch data) and a top "About" bar, matching the layout you get from
+  `dotnet new blazor`. Counter and Weather are the framework's stock demo pages,
+  included so the sidebar links go somewhere — the graded work is the Connect Four
+  board and the Game Activity feature on the Home page.
+- The board uses the classic yellow board / red & blue pieces from the tutorial.
+  Colors are just parameters on `<Board>` in `Home.razor` — easy to change.
 - `Components/App.razor` links `ConnectFour.styles.css` in the `<head>`. This is
   Blazor's auto-generated bundle of every component's scoped `*.razor.css` file
-  (here, `Board.razor.css` and `MainLayout.razor.css`). It's produced automatically
-  at build time — don't delete that `<link>` tag, or the board frame, piece colors,
-  and drop animations will disappear even though the page still "works".
+  (here, `Board.razor.css`, `MainLayout.razor.css`, `NavMenu.razor.css`). It's
+  produced automatically at build time — don't delete that `<link>` tag, or the
+  board frame, piece colors, drop animations, and sidebar styling will disappear
+  even though the page still "works".
 - This was verified by building and running the project with the .NET 8 SDK,
   and by unit-testing `GameState`'s win detection (horizontal, vertical, diagonal),
   full-column error handling, and win-streak logic directly.

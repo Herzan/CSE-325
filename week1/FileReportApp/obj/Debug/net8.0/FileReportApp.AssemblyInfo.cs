@@ -13,7 +13,7 @@ using System.Reflection;
 [assembly: System.Reflection.AssemblyCompanyAttribute("FileReportApp")]
 [assembly: System.Reflection.AssemblyConfigurationAttribute("Debug")]
 [assembly: System.Reflection.AssemblyFileVersionAttribute("1.0.0.0")]
-[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+1d588f864dcc90199651c6f352a1f121c1d5419e")]
+[assembly: System.Reflection.AssemblyInformationalVersionAttribute("1.0.0+5f2ddd123cd5513ea40fc596ba7465686ad3d018")]
 [assembly: System.Reflection.AssemblyProductAttribute("FileReportApp")]
 [assembly: System.Reflection.AssemblyTitleAttribute("FileReportApp")]
 [assembly: System.Reflection.AssemblyVersionAttribute("1.0.0.0")]

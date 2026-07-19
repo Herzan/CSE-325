@@ -31,3 +31,4 @@ C:\Users\DELL\Documents\CSE-325\ConnectFour\obj\Debug\net8.0\refint\ConnectFour.
 C:\Users\DELL\Documents\CSE-325\ConnectFour\obj\Debug\net8.0\ConnectFour.pdb
 C:\Users\DELL\Documents\CSE-325\ConnectFour\obj\Debug\net8.0\ConnectFour.genruntimeconfig.cache
 C:\Users\DELL\Documents\CSE-325\ConnectFour\obj\Debug\net8.0\ref\ConnectFour.dll
+C:\Users\DELL\Documents\CSE-325\ConnectFour\obj\Debug\net8.0\scopedcss\Components\Layout\NavMenu.razor.rz.scp.css
