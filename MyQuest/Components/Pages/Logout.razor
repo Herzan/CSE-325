@@ -2,12 +2,12 @@
 @using blazor_todo_list.Services
 
 @inject IAccountService AccountService
-@inject IdentityRedirectManager RedirectManager
+@inject NavigationManager NavigationManager
 
 @code {
     protected override async Task OnInitializedAsync()
     {
         await AccountService.LogoutAsync();
-        RedirectManager.RedirectTo("/");
+        NavigationManager.NavigateTo("/");
     }
 }
