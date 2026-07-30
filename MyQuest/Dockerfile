@@ -12,7 +12,6 @@ RUN dotnet publish "blazor-todo-list.csproj" -c Release -o /app/publish --no-res
 FROM mcr.microsoft.com/dotnet/aspnet:10.0 AS runtime
 WORKDIR /app
 
-# SQLite database lives on a mounted volume so it survives container restarts/redeploys.
 RUN mkdir -p /app/data
 VOLUME ["/app/data"]
 
